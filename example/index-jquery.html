@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Background Randomizer Example</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .bg {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .flower-1, .flower-2, .flower-3 {
+            width: 30px;
+            height: auto;
+        }
+        .flower-2 {
+            width: 50px;
+        }
+        .flower-3 {
+            width: 20px;
+        }
+        .bubble {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #999;
+        }
+        .bg {
+            overflow: hidden;
+        }
+        .fadeIn {
+            animation: 1 1s fadeIn ease-in;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous" defer></script>
+    <script src="../bg-randomizer.js" defer></script>
+</head>
+<body>
+    <div class="bg"></div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let bg = $('body').bgRandomizer({
+            bgItemsCount: 30,
+            bgElement: '.bg'
+        });
+
+        bg.addBgItemToPut(new BgItem('<div><img src="img/flower1.png" class="flower-1"></div>', {
+            scaleFactor: 10, //percents 0 - 100
+            isScalable: true,
+            rotateFactor: 180, //percents 0 - 100
+            isRotatable: true
+        }));
+        bg.addBgItemToPut(new BgItem('<div><img src="img/flower2.png" class="flower-2"></div>', {
+            scaleFactor: 80, //percents 0 - 100
+            isScalable: true,
+            rotateFactor: 180, //percents 0 - 100
+            isRotatable: true
+        }));
+        bg.addBgItemToPut(new BgItem('<div><img src="img/flower3.png" class="flower-3"></div>', {
+            scaleFactor: 50, //percents 0 - 100
+            isScalable: true,
+            rotateFactor: 180, //percents 0 - 100
+            isRotatable: true
+        }));
+        bg.addBgItemToPut(new BgItem('<div class="bubble"></div>', {
+            scaleFactor: 50, //percents 0 - 100
+            isScalable: true,
+        }));
+
+        bg.render();
+    });
+</script>
+</html>

@@ -1,4 +1,3 @@
-//TODO: separate class files and webpack build
 class CustomItem {
     options = {}
 
@@ -246,7 +245,6 @@ class BackgroundRandomizer extends CustomItem {
     }
 }
 
-//TODO: jQuery calls
-// $.fn.bgRandomizer = function (options) {
-//     return = new BackgroundRandomizer(options);
-// };
+window.jQuery.fn.bgRandomizer = function (options) {
+    return new BackgroundRandomizer(options);
+};
