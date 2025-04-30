@@ -2,4 +2,4 @@
 
 This is JavaScript / jQuery library to generate some random backgrounds.
 
-See example folder for useges.
+See example folder for usages.
